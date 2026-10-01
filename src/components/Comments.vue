@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-// TODO: 仓库创建并在仓库 Settings 开启 Discussions 后，去 https://giscus.app
-// 选择 LIKGAJ/leoll-blog 仓库、mapping 选 pathname，生成配置后替换下面两行。
-const GISCUS_REPO_ID = 'PLACEHOLDER_REPO_ID'
-const GISCUS_CATEGORY = 'Comments'
-const GISCUS_CATEGORY_ID = 'PLACEHOLDER_CATEGORY_ID'
+// 由 https://giscus.app 为 LIKGAJ/leoll-blog 仓库生成，mapping 为 pathname。
+const GISCUS_REPO_ID = 'R_kgDOU3LXug'
+const GISCUS_CATEGORY = 'Announcements'
+const GISCUS_CATEGORY_ID = 'DIC_kwDOU3LXus4DG0Dt'
 
 const container = ref<HTMLDivElement | null>(null)
 

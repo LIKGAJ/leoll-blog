@@ -139,12 +139,9 @@ export default defineConfig({
 
 ## 评论（Giscus）
 
-评论基于 [Giscus](https://giscus.app)（GitHub Discussions，免费、无需后端），组件在 [src/components/Comments.vue](src/components/Comments.vue)，只在文章详情页展示。仓库推送到 GitHub 之后需要手动完成一次性配置：
+评论基于 [Giscus](https://giscus.app)（GitHub Discussions，免费、无需后端），组件在 [src/components/Comments.vue](src/components/Comments.vue)，只在文章详情页展示。已完成配置：Discussions 已开启，Mapping 用 **pathname**，Discussion Category 用 GitHub 默认的 **Announcements** 分类（只有仓库所有者能发起新帖，适合当评论区），对应的 `repo-id` / `category-id` 已经写进 `Comments.vue`。
 
-1. 进入仓库 `Settings > General`，勾选开启 **Discussions**。
-2. 建议在 Discussions 里新建一个名为 `Comments` 的分类（Announcement 类型即可）。
-3. 打开 https://giscus.app ，仓库填 `LIKGAJ/leoll-blog`，Page ↔ Discussions Mapping 选 **pathname**，Discussion Category 选刚才建的 `Comments`。
-4. 页面底部会生成一段 `<script>` 配置，把其中的 `data-repo-id` 和 `data-category-id` 复制到 [src/components/Comments.vue](src/components/Comments.vue) 里的 `GISCUS_REPO_ID` / `GISCUS_CATEGORY_ID` 常量（文件里有 `TODO` 注释标出位置），提交并推送即可生效。
+如果以后要换仓库或重新生成配置，去 https://giscus.app 按同样方式生成，再替换 `Comments.vue` 里的 `GISCUS_REPO_ID` / `GISCUS_CATEGORY_ID` 常量即可。
 
 ## 404 页面
 
