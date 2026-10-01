@@ -1,0 +1,43 @@
+backend:
+  name: github
+  repo: LIKGAJ/leoll-blog
+  branch: master
+  base_url: https://api.netlify.com
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "文章"
+    label_singular: "文章"
+    folder: "src/posts"
+    create: true
+    delete: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{fields.slug}}"
+    identifier_field: "title"
+    summary: "{{title}} — {{category}} — {{date}}"
+    fields:
+      - label: "路由 Slug（英文小写+短横线，例如 docker-basic）"
+        name: "slug"
+        widget: "string"
+        pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "只能是小写字母、数字和短横线，且不能以短横线开头/结尾"]
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "描述", name: "description", widget: "text" }
+      - label: "日期"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+      - label: "分类"
+        name: "category"
+        widget: "select"
+        options: ["Linux", "Java", "AI", "Docker", "Red Hat", "DevOps"]
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        default: []
+      - { label: "正文", name: "body", widget: "markdown" }

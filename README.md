@@ -147,6 +147,24 @@ export default defineConfig({
 
 访问不存在的路径会展示 [src/views/NotFound.vue](src/views/NotFound.vue)，而不是静默跳转回首页。
 
+## 内容管理后台（Decap CMS）
+
+不想每次加文章都在本地写 Markdown + git 操作的话，可以用网页后台编辑：`https://likgaj.github.io/leoll-blog/admin/`。
+
+后台基于 [Decap CMS](https://decapcms.org)（免费开源，原 Netlify CMS），配置文件在 [public/admin/config.yml](public/admin/config.yml)，登录后直接通过 GitHub API 读写 `src/posts/` 下的 Markdown 文件，点 **Publish** 就会自动 commit + push 到 `master` 分支，触发已有的 GitHub Actions 自动构建部署——和本地手动 push 效果完全一样。
+
+**鉴权说明**：任何人都能打开 `/admin` 尝试登录，但 GitHub API 只认"对该仓库有写权限的账号"，没有写权限的人登录了也保存不了内容，不需要额外做权限控制。
+
+### 一次性启用步骤
+
+纯静态站点没有后端帮你保管 OAuth 密钥，所以需要借用 [Netlify 的免费 OAuth 代理服务](https://decapcms.org/docs/github-backend/)（**不需要**把网站部署到 Netlify，只是借用它的登录转发）：
+
+1. 在 GitHub 创建一个 OAuth App：`Settings > Developer settings > OAuth Apps > New OAuth App`。Homepage URL 填博客地址，**Authorization callback URL 必须填 `https://api.netlify.com/auth/done`**。创建后会拿到一个 Client ID 和 Client Secret。
+2. 注册/登录一个免费 Netlify 账号，在团队设置里找到 OAuth 相关设置，把上一步的 Client ID / Client Secret 登记进去。具体菜单位置以 [Decap CMS 官方文档](https://decapcms.org/docs/github-backend/) 为准（Netlify UI 可能会变）。
+3. 打开 `https://likgaj.github.io/leoll-blog/admin/`，点 "Login with GitHub"，用有仓库写权限的 GitHub 账号登录即可开始编辑。
+
+> 小提示：CMS 里新建文章时会多一个"路由 Slug"字段，用来生成文件名（例如 `docker-basic`），对应保存后会作为一个额外的 front matter 字段出现在 `.md` 文件里，不影响现有文章解析逻辑，可以忽略。
+
 ## 目录结构
 
 ```text
@@ -154,6 +172,9 @@ export default defineConfig({
 scripts/
 └── generate-feeds.mjs
 public/
+├── admin/
+│   ├── index.html
+│   └── config.yml
 ├── robots.txt
 ├── sitemap.xml (构建生成)
 └── rss.xml (构建生成)
