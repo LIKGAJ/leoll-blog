@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>LEOLL Blog</title>
+    <link>https://likgaj.github.io/leoll-blog/</link>
+    <description>记录 Linux、Java、AI、Docker、DevOps 与项目开发实践。</description>
+    <language>zh-CN</language>
+    <item>
+      <title>SELinux 实战笔记</title>
+      <link>https://likgaj.github.io/leoll-blog/posts/linux-selinux</link>
+      <guid>https://likgaj.github.io/leoll-blog/posts/linux-selinux</guid>
+      <description>记录 RHEL 系统中 SELinux 的常见配置方法。</description>
+      <category>Linux</category>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Docker 入门学习笔记</title>
+      <link>https://likgaj.github.io/leoll-blog/posts/docker-basic</link>
+      <guid>https://likgaj.github.io/leoll-blog/posts/docker-basic</guid>
+      <description>整理 Docker 镜像、容器、数据卷和常用命令的基础知识。</description>
+      <category>Docker</category>
+      <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Java 学习记录</title>
+      <link>https://likgaj.github.io/leoll-blog/posts/java-learning</link>
+      <guid>https://likgaj.github.io/leoll-blog/posts/java-learning</guid>
+      <description>从语法、集合、异常和面向对象角度整理 Java 学习重点。</description>
+      <category>Java</category>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>我的 AI 项目实践</title>
+      <link>https://likgaj.github.io/leoll-blog/posts/ai-project-practice</link>
+      <guid>https://likgaj.github.io/leoll-blog/posts/ai-project-practice</guid>
+      <description>整理 AI 应用项目中的需求拆解、提示词、接口调用和结果评估。</description>
+      <category>AI</category>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Git 常用命令整理</title>
+      <link>https://likgaj.github.io/leoll-blog/posts/git-commands</link>
+      <guid>https://likgaj.github.io/leoll-blog/posts/git-commands</guid>
+      <description>整理 Git 日常开发中常用的状态查看、提交、分支和远程协作命令。</description>
+      <category>DevOps</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
